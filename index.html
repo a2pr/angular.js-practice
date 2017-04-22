@@ -6,10 +6,16 @@
         <script src="script.js"></script>
     </head>
     <body ng-controller="FirstController">
-        <button type="button" ng-click="OnStart()"  ng-hide="start">{{message}}</button><!-- como convertir el valor de ng.click en funcion-->
+        <button type="button" ng-click="OnStart()" >{{message}}</button>
         <div ng-show="start">
-            <h1>hello world</h1>
-            <p>{{message1}}</p>
+            <h1>Stage 1</h1>
+            <p style="font-size:25px;">{{greeting}}<br>
+            "A crow lands on your shoulder, and start to speaks'Whats your name stranger?'" <br></p>
+            <form>
+                <input type="input" name="name" placeholder="Yourname" ng-model="name">
+                <input type="submit" value="Submit" ng-submit="NamVal(name)">     
+            </form>
+            <p ng-show="start2">{{respond1}}</p>
         </div>
     </body>
 </html>

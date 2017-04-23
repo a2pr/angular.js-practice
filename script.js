@@ -12,34 +12,33 @@
     "You appear in the middle of a forest, with trees as high as the eye can see"
       ]; 
     var hero ={};
+    var randomNumber= function (range){ 
+      return Math.round( Math.random() * range );
+      };
   $scope.OnStart= function( ){
     $scope.start=true;
     $scope.greeting= eventList[randomNumber(eventList.length -1)];
     };
   
    var NameValidation= function (name) {
-    if (name==="") {
-      $scope.respond1="Too shy to talk aren't you? Oh welp i supose i will call you Dick.";
+    if (!name) {
+      $scope.start2=true;
       hero.name="Dick";
-      return 
-        $scope.start2=true;
-        hero.name;
+      return $scope.respond1="Too shy to talk aren't you? Oh welp i supose i will call you Dick.";
     }else{
       hero.name= $scope.name;
-      return hero.name;
+      $scope.start2=true;
+      return $scope.respond1="hi Mr or Ms"+ " " + hero.name + " " + " You are on top of my home. "
+      +"So i demand you, to look for a new home for me and my children ";
     }
   };
 
-  $scope.NamVal= function (name) { //no esta recibiendo el valor del input 
+  $scope.NamVal= function (name) {
     $scope.start2=false;
     NameValidation(name);
-    alert("Your name is"+ hero.name);
-  }
-  var randomNumber= function (range){
-            return Math.round( Math.random() * range );
-          };
-  
-  
+    $scope.respond2="Do you have any special skills? are you a Mage?, or Warrior?, or perphaps an Archer?";
+    $scope.start3=true;
+  }   
 };
 
 app.controller("FirstController", FirstController);

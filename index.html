@@ -4,18 +4,30 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
         </script>
         <script src="script.js"></script>
+        <style>
+        p{
+            font-size:25px;
+        }
+        </style>
     </head>
     <body ng-controller="FirstController">
         <button type="button" ng-click="OnStart()" >{{message}}</button>
         <div ng-show="start">
             <h1>Stage 1</h1>
-            <p style="font-size:25px;">{{greeting}}<br>
+            <p>{{greeting}}<br>
             "A crow lands on your shoulder, and start to speaks'Whats your name stranger?'" <br></p>
-            <form>
+            <form ng-submit="NamVal(name)">
                 <input type="input" name="name" placeholder="Yourname" ng-model="name">
-                <input type="submit" value="Submit" ng-submit="NamVal(name)">     
+                <input type="submit" value="Submit"/>     
             </form>
             <p ng-show="start2">{{respond1}}</p>
+        <div ng-show="start3"><!-- comenzar aca -->
+            <p>{{respond2}}</p>
+            <form ng-submit="">
+                <input type="input" name="skill" placeholder="mage,warrior,archer" ng-model="skill"/>
+                <input type="submit" value="Submit"/>
+            </form>
+        </div>
         </div>
     </body>
 </html>

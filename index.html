@@ -8,11 +8,15 @@
         p{
             font-size:25px;
         }
+        #UpdatedStatsMessage{
+            font-size:15px;
+            font-style: italic;
+        }
         </style>
     </head>
     <body ng-controller="FirstController">
-        <button type="button" ng-click="OnStart()" >{{message}}</button>
-        <div ng-show="start">
+        <button type="button" ng-click="OnStart()" ng-hide="start0" >{{message}}</button>
+        <div ng-show="start"><!-- Name validation  -->
             <h1>Stage 1</h1>
             <p>{{greeting}}<br>
             "A crow lands on your shoulder, and start to speaks'Whats your name stranger?'" <br></p>
@@ -20,14 +24,19 @@
                 <input type="input" name="name" placeholder="Yourname" ng-model="name">
                 <input type="submit" value="Submit"/>     
             </form>
-            <p ng-show="start2">{{respond1}}</p>
-        <div ng-show="start3"><!-- comenzar aca -->
-            <p>{{respond2}}</p>
-            <form ng-submit="">
-                <input type="input" name="skill" placeholder="mage,warrior,archer" ng-model="skill"/>
-                <input type="submit" value="Submit"/>
-            </form>
         </div>
+            
+        <div ng-show="start2"><!-- Class validation -->
+            <p>{{respond1}}<br>{{respond2}} </p>
+            
+            <button type="button" ng-model="type='mage'" ng-click="ClassVal(type)">Mage</button>
+            <button type="button" ng-model="type='warrior'" ng-click="ClassVal(type)">Warrior</button>
+            <button type="button" ng-model="type='archer'" ng-click="ClassVal(type)">Archer</button>
         </div>
+        <div ng-show="start3">
+            <p id="UpdatedStatsMessage">{{UpdatedStatsMessage}}</p>
+            <p >{{CrowMessage}} <br></p><!-- hasta ahora 24/4-->
+        </div>
+        
     </body>
 </html>
